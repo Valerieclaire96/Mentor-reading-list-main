@@ -73,7 +73,7 @@ def setup_commands(app):
                     "age": 12,
                     "notable_traits":"Tough, Independent, and views her blindess as a strength",
                     "bending_abilities": "Earth and Metal",
-                    "photo": "https://static.wikia.nocookie.net/avatar/images/4/46/Toph_Beifong.png/revision/latest?cb=20131230122047"
+                    "photo": "https://m.media-amazon.com/images/M/MV5BZGE2ZmE0MjAtMWU0OS00M2U0LThiMzUtZDc0MjVkODllYTQyXkEyXkFqcGdeQXVyMjgyOTI4Mg@@._V1_FMjpg_UX1000_.jpg"
                 },
                 {
                     "name":"Gram Gram",
@@ -134,7 +134,7 @@ def setup_commands(app):
                     "age": 16,
                     "notable_traits":"Supportive, Strong, and a Leader",
                     "bending_abilities": "None",
-                    "photo": "https://static.wikia.nocookie.net/avatar/images/1/14/Suki.png/revision/latest?cb=20130819094354",
+                    "photo": "https://static1.cbrimages.com/wordpress/wp-content/uploads/2020/08/suki-kyoshi-fire-header-e1612366908421.jpg",
                 },
                 {
                     "name":"Cabbage Merchant",

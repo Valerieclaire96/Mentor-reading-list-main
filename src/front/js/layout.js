@@ -6,6 +6,7 @@ import injectContext from "./store/appContext";
 
 import Navbar from "./component/Navbar";
 import Home from "./pages/home";
+import AvatarDescription from "./pages/AvatarDescription";
 
 //create your first component
 const Layout = () => {
@@ -22,6 +23,7 @@ const Layout = () => {
                     <Navbar />
                     <Routes>
                         <Route element={<Home />} path="/" />
+                        <Route element={<AvatarDescription />} path="/avatar_description/:id"/>
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                 </ScrollToTop>
