@@ -85,7 +85,7 @@ class Cities(db.Model):
             "nation": self.nation,
             "leader": self.leader,
             "photo": self.photo,
-            "description": self.descriptio
+            "description": self.description
             # do not serialize the password, its a security breach
         }
 

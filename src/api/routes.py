@@ -125,9 +125,9 @@ def add_previous_avatars():
 
 @api.route('/previous_avatars', methods=["GET"])
 def get_previous_avatars():
-    previous_avatarss = Previous_Avatars.query.all()
-    all_previous_avatarss = list(map(lambda x: x.serialize(), previous_avatarss))
-    return jsonify(all_previous_avatarss), 200
+    previous_avatars = Previous_Avatars.query.all()
+    all_previous_avatars = list(map(lambda x: x.serialize(), previous_avatars))
+    return jsonify(all_previous_avatars), 200
 
 @api.route('/previous_avatars/<int:previous_avatars_id>', methods=["GET"])
 def get_previous_avatar(previous_avatars_id):
