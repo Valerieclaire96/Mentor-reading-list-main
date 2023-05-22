@@ -5,7 +5,7 @@ import { BackendURL } from "./component/backendURL";
 import injectContext from "./store/appContext";
 
 import Navbar from "./component/Navbar";
-import { Home } from "./pages/home";
+import Home from "./pages/home";
 
 //create your first component
 const Layout = () => {

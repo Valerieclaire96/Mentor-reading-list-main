@@ -13,23 +13,18 @@ export default function Card(props) {
     const { store, actions } = useContext(Context);
     const history = useNavigate();
 
-    const [furryFriendsList, setFurryFriendsList] = useState(defaulInfo)
-    let furryFriendsInfo = {
-        name: furryFriendsList.name,
-        nationality: furryFriendsList.nationality,
-        photo: furryFriendsList.photo
-    }
+  
 
     const learnMoreDescription = () => {
-        if (props.character) {
-            actions.setItem(props.character);
+        if (props.characters) {
+            actions.setItem(props.characters);
             history(`description/${props.character.id}`)
-        } else if (props.bending_type) {
-            actions.setItem(props.bending_type);
-            history(`description/${props.bending_type.id}`)
+        } else if (props.bending_types) {
+            actions.setItem(props.bending_types);
+            history(`description/${props.bending_types.id}`)
         } else if (props.cities) {
             actions.setItem(props.cities);
-            history(`description/${props.cities.id}`)
+            history(`description/${props.citys.id}`)
         } else if (props.furry_frineds) {
             actions.setItem(props.furry_frineds);
             history(`description/${props.furry_frineds.id}`)
@@ -42,12 +37,12 @@ export default function Card(props) {
         <div className='card-container'>
             {props.character ? (
                 <div>
-                <h3 className='card-name'>{props.character.name}</h3>
+                <h3 className='card-name'>{props.characters.name}</h3>
                 <img src={props.character.photo}/>
                 </div>
             ) : props.bending_type ? (
                 <div>
-                <h3 className='card-name'>{props.bending_type.name}</h3>
+                <h3 className='card-name'>{props.bending_types.name}</h3>
                 <img src={props.bending_type.photo}/>
                 </div>
             ) : props.cities ? (

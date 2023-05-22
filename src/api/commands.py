@@ -403,7 +403,7 @@ def setup_commands(app):
                         nation = previous_avatars["nation"],
                         hair_color = previous_avatars["hair_color"],
                         eye_color = previous_avatars["eye_color"],
-                        age_at_deaht = previous_avatars["age"],
+                        age_at_death = previous_avatars["age_at_death"],
                         notable_traits = previous_avatars["notable_traits"],
                         photo = previous_avatars['photo']
                     )

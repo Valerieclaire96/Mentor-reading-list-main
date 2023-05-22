@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Card from '../component/Card'
-import AvatarCard from '../component/AvatarCards'
 
-export default function Home() {
+export default function Home(props) {
 	const [characters, setCharacters] = useState([])
 	const [bendingTypes, setBendingTypes] = useState([])
 	const [cities, setCities] = useState([])
@@ -12,15 +11,15 @@ export default function Home() {
 	useEffect(() => {
 		if (
 			JSON.parse(localStorage.getItem("characters")) &&
-			JSON.parse(localStorage.getItem("bending_type")) &&
+			JSON.parse(localStorage.getItem("bending_types")) &&
 			JSON.parse(localStorage.getItem("cities")) &&
 			JSON.parse(localStorage.getItem("furry_friends")) &&
 			JSON.parse(localStorage.getItem("previous_avatars"))
 		) {
 			setCharacters(JSON.parse(localStorage.getItem("characters")));
-			setBendingType(JSON.parse(localStorage.getItem("bending_type")));
+			setBendingTypes(JSON.parse(localStorage.getItem("bending_types")));
 			setCities(JSON.parse(localStorage.getItem("cities")));
-			setFurryFriends(JSON.parse(localStorage.getItem("furry_friens")));
+			setFurryFriends(JSON.parse(localStorage.getItem("furry_friends")));
 			setPreviousAvatars(JSON.parse(localStorage.getItem("previous_avatars")));
 		} else {
 			fetch(process.env.BACKEND_URL + "/api/characters")
