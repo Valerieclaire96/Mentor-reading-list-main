@@ -1,22 +1,30 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			message: null,
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
-		},
+			item: "",
+			description: {}
+			},
 		actions: {
 			// Use getActions to call a function within a fuction
+
+			fetchDescription: (e) => {
+				fetch(e)
+				.then((res) => {
+					return res.json();
+				})
+				.then((data) => {
+					setStore({
+						item: getStore().item,
+						description: data.result.properies,
+					})
+				});
+			},
+			setItem: (e) => {
+				setStore({
+					item: e,
+					description: getStore().description
+				});
+			},
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
