@@ -6,5 +6,24 @@
     width: 60%;
 }
 .card{
-    width: 18rem !important;
+    margin: 0 3px;
+    border: none;
+    outline: none;
+    padding: none;
+    border-radius: 14px;
+    background: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
 }
+.card-body{
+    width: 30rem;
+}
+.card-body-left{
+    justify-content: flex-start;
+}
+.cardBottom{
+    justify-content: flex-end;
+    
+}
+ body{
+    background-image: url(http://farm9.staticflickr.com/8351/8306408148_056c8149c4_o.jpg);
+    background-size: cover;
+ }

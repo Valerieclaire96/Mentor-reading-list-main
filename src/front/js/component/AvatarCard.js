@@ -1,43 +1,49 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 export default function AvatarCard() {
     const [avatars, setAvatars] = useState([])
-
-    console.log(avatars)
+    const { store, actions } = useContext(Context);    console.log(avatars)
     useEffect(() => {
         async function fetchData() {
             const res = await fetch(process.env.BACKEND_URL + "/api/previous_avatars");
             const data = await res.json();
             setAvatars(data);
+            actions.setItem(avatars.name)
         }
         fetchData();
     }, []);
 
-    const learnMoreDescription = () => {
-        history(`/description/${avatars.id}`);
-    };
+    // const learnMoreDescription = () => {
+    //     history(`/avatar_description/${avatars.id}`);
+    // };
 
     return (
-        <div className="d-flex col-10 overflow-auto mt-5 mx-auto" >            
-            
+        <div className="d-flex col-10 overflow-auto mt-5 mx-auto" >
+
             {avatars.length ? avatars.map((avatar, index) => (
-                <div className="card col-1" style={{ width: "18rem" }}>
+                <div className="card col-1" style={{ width: "30rem" }}>
                     {console.log(avatars.name, "HERE")}
-                    <img src={avatar.photo} className="card-img-top" />
-                    <div className="card-body">
-                        <h5 style={{ height: "60px" }} className="card-title mt-2">
-                            {avatar.name}
-                        </h5>
-                        <h5 style={{ height: "60px" }} className="card-title mt-2">
-                            {avatar.nation}
-                        </h5>
+                    <img src={avatar.photo} style={{ height: "15rem" }} className="card-img-top" />
+                    <div className="card-body d-flex justify-content-between">
+                        <div className="bard-body-left">
+                            <h3 className="card-title">
+                                {avatar.name}
+                            </h3>
+                            <h5 className="card-title">
+                                {avatar.nation}
+                            </h5>
+                        </div>
                         <div className="cardBottom">
-                            <button onClick={learnMoreDescription} className="btn btn-secondary">
-                                Learn More
-                            </button>
+                            <Link
+                                to={`/avatar_description/${index + 1}`}
+                                className="btn btn-outline-primary btn-outline-starwars-1"
+                            >
+                                Learn More!
+                            </Link>
                             {/* <button
               onClick={(e) => handleClick(e)}
               className={activeFav ? "fas fa-heart" : "far fa-heart"}

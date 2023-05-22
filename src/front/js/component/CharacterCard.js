@@ -25,14 +25,16 @@ export default function CharacterCard() {
             {characters.length ? characters.map((character, index) => (
                 <div className="card col-1" style={{ width: "30rem" }}>
                     {console.log(characters.name, "HERE")}
-                    <img src={character.photo} className="card-img-top" />
-                    <div className="card-body">
-                        <h5 style={{ height: "60px" }} className="card-title mt-2">
+                    <img src={character.photo} style={{height: "15rem"}} className="card-img-top" />
+                    <div className="card-body d-flex justify-content-between">
+                      <div className="card-body-left">
+                        <h3 className="card-title">
                             {character.name}
+                        </h3>
+                        <h5 className="card-title">
+                            {character.nationality}
                         </h5>
-                        <h5 style={{ height: "60px" }} className="card-title mt-2">
-                            {character.nation}
-                        </h5>
+                        </div>
                         <div className="cardBottom">
                             <button onClick={learnMoreDescription} className="btn btn-secondary">
                                 Learn More

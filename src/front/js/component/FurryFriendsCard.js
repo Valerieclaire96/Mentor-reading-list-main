@@ -24,16 +24,18 @@ export default function FurryFriendsCard() {
         <div className="d-flex col-10 overflow-auto mt-5 mx-auto" >            
             
             {furryFriends.length ? furryFriends.map((pet, index) => (
-                <div className="card col-1" style={{ width: "18rem" }}>
+                <div className="card col-1" style={{ width: "30rem" }}>
                     {console.log(pet.name, "HERE")}
-                    <img src={pet.photo} className="card-img-top" />
-                    <div className="card-body">
-                        <h5 style={{ height: "60px" }} className="card-title mt-2">
+                    <img src={pet.photo} style={{height: "15rem"}} className="card-img-top" />
+                    <div className="card-body d-flex justify-content-between">
+                        <div className="card-body-left">
+                        <h3 className="card-title">
                             {[pet].name}
-                        </h5>
-                        <h5 style={{ height: "60px" }} className="card-title mt-2">
+                        </h3>
+                        <h5 className="card-title ">
                             {pet.species}
                         </h5>
+                        </div>
                         <div className="cardBottom">
                             <button onClick={learnMoreDescription} className="btn btn-secondary">
                                 Learn More

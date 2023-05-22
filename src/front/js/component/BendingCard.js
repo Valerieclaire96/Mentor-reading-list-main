@@ -24,17 +24,18 @@ export default function BendingCard() {
       <div className="d-flex col-10 overflow-auto mt-5 mx-auto" >            
             
             {bending.length ? bending.map((bendingType, index) => (
-                <div className="card col-1" style={{ width: "18rem" }}>
+                <div className="card col-1" style={{ width: "30rem" }}>
                     {console.log(bendingType.name, "HERE")}
-                    <img src={bendingType.photo} className="card-img-top" />
-                    <div className="card-body">
-                        <h5 style={{ height: "60px" }} className="card-title mt-2">
-                            {bendingType.name}
-                        </h5>
-                        <h5 style={{ height: "60px" }} className="card-title mt-2">
+                    <img src={bendingType.photo} style={{height: "15rem"}} className="card-img-top" />
+                    <div className="card-body d-flex justify-content-between">
+                       <div className="bard-body-left">
+                        <h3 className="card-title d-flex">
+                            {bendingType.nation_relation}
+                        </h3>
+                        <h5 className="card-title">
                             {bendingType.nation_relation_sub}
                         </h5>
-                        <h4>{bendingType.nation_relation}</h4>
+                        </div>
                         <div className="cardBottom">
                             <button onClick={learnMoreDescription} className="btn btn-secondary">
                                 Learn More

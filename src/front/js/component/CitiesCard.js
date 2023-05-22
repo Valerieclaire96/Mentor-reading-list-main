@@ -24,16 +24,20 @@ export default function CitiesCard() {
       <div className="d-flex col-10 overflow-auto mt-5 mx-auto" >            
             
             {cities.length ? cities.map((city, index) => (
-                <div className="card col-1" style={{ width: "18rem" }}>
+                <div className="card col-1" style={{ width: "30rem" }}>
                     {console.log(city.name, "HERE")}
-                    <img src={city.photo} className="card-img-top" />
-                    <div className="card-body">
-                        <h5 style={{ height: "60px" }} className="card-title mt-2">
+                    <img src={city.photo} style={{height: "15rem"}} className="card-img-top" />
+                    <div className="card-body d-flex justify-content-between">
+                        <div className="card-body-left">
+                        <h5 
+                         className="card-title">
                             {city.name}
                         </h5>
-                        <h5 style={{ height: "60px" }} className="card-title mt-2">
+                        <h5 
+                         className="card-title">
                             {city.nation}
                         </h5>
+                        </div>
                         <div className="cardBottom">
                             <button onClick={learnMoreDescription} className="btn btn-secondary">
                                 Learn More
