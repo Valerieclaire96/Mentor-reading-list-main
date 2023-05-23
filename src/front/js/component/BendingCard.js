@@ -6,7 +6,11 @@ import { Link } from "react-router-dom";
 
 
 export default function BendingCard() {
-    const [bending, setBending] = useState([])
+    const [bending, setBending] = useState([]);
+    const { store, actions } = useContext(Context);
+    const [liked, setLiked] = useState(false);
+
+
 
     console.log(bending)
     useEffect(() => {
@@ -14,10 +18,28 @@ export default function BendingCard() {
             const res = await fetch(process.env.BACKEND_URL + "/api/bending_types");
             const data = await res.json();
             setBending(data);
+            actions.setItem(data)
+
         }
         fetchData();
     }, []);
 
+
+    useEffect(() => {
+        if (
+            store.favorites.find((x) => {
+                for (let i in x) {
+                    if (bending[i] && bending[i].name === x[i].name) {
+                        return true;
+                    }
+                }
+            })
+        ) {
+            setLiked(true);
+        } else {
+            setLiked(false);
+        }
+    }, [store.favorites]);
 
 
     return (
@@ -43,15 +65,14 @@ export default function BendingCard() {
                             >
                                 Learn More!
                             </Link>
-                            {/* <button
-              onClick={(e) => handleClick(e)}
-              className={activeFav ? "fas fa-heart" : "far fa-heart"}
-              style={{
-                background: "transparent",
-                border: "none",
-                outline: "none",
-              }}
-            ></button> */}
+                            <button
+                                onClick={() => {
+                                    actions.addFavorite(bending);
+                                }}
+                                className="favorites-button"
+                            >
+                                ❤️️
+                            </button>
                         </div>
                     </div>
                 </div>
