@@ -43,7 +43,7 @@ export default function AvatarCard() {
     // };
 
     return (
-        <div className="d-flex col-10 overflow-auto mt-5 mx-auto" >
+        <div className="d-flex col-10 overflow-auto mt-5 mx-auto cards" >
 
             {avatars.length ? avatars.map((avatar, index) => (
                 <div className="card col-1" style={{ width: "30rem" }}>
@@ -61,7 +61,7 @@ export default function AvatarCard() {
                         <div className="cardBottom">
                             <Link
                                 to={`/avatar_description/` + avatar.id}
-                                className="btn btn-outline-primary btn-outline-starwars-1"
+                                className="btn btn-light text-dark"
                             >
                                 Learn More!
                             </Link>
@@ -70,6 +70,11 @@ export default function AvatarCard() {
                                     actions.addFavorite(avatar);
                                 }}
                                 className="favorites-button"
+                                style={{
+                                    background: "transparent",
+                                    border: "none",
+                                    outline: "none",
+                                  }}
                             >
                                 ❤️️
                             </button>

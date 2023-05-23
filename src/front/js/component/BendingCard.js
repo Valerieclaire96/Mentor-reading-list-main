@@ -43,7 +43,7 @@ export default function BendingCard() {
 
 
     return (
-      <div className="d-flex col-10 overflow-auto mt-5 mx-auto" >            
+      <div className="d-flex col-10 overflow-auto mt-5 mx-auto cards" >            
             
             {bending.length ? bending.map((bendingType, index) => (
                 <div className="card col-1" style={{ width: "30rem" }}>
@@ -61,7 +61,7 @@ export default function BendingCard() {
                         <div className="cardBottom">
                         <Link
                                 to={`/bending_description/` + bending.id}
-                                className="btn btn-outline-primary btn-outline-starwars-1"
+                                className="btn btn-light text-dark"
                             >
                                 Learn More!
                             </Link>
@@ -69,7 +69,12 @@ export default function BendingCard() {
                                 onClick={() => {
                                     actions.addFavorite(bending);
                                 }}
-                                className="favorites-button"
+                                className="favorites-button btn btn-light text-dark"
+                                style={{
+                                    background: "transparent",
+                                    border: "none",
+                                    outline: "none",
+                                  }}
                             >
                                 ❤️️
                             </button>

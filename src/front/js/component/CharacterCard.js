@@ -40,7 +40,7 @@ export default function CharacterCard() {
         }
     }, [store.favorites]);
     return (
-      <div className="d-flex col-10 overflow-auto mt-5 mx-auto" >            
+      <div className="d-flex col-10 overflow-auto mt-5 mx-auto cards" >            
             {characters.length ? characters.map((character, index) => (
                 <div className="card col-1" style={{ width: "30rem" }}>
                     {console.log(characters.name, "HERE")}
@@ -57,7 +57,7 @@ export default function CharacterCard() {
                         <div className="cardBottom">
                         <Link
                                 to={`/character_description/` + character.id}
-                                className="btn btn-outline-primary btn-outline-starwars-1"
+                                className="btn btn-light text-dark"
                             >
                                 Learn More!
                             </Link>
@@ -66,6 +66,11 @@ export default function CharacterCard() {
                                     actions.addFavorite(character);
                                 }}
                                 className="favorites-button"
+                                style={{
+                                    background: "transparent",
+                                    border: "none",
+                                    outline: "none",
+                                  }}
                             >
                                 ❤️️
                             </button>

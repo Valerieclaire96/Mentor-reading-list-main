@@ -1,6 +1,7 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
 .card-container{
     overflow-x: scroll;
     width: 60%;
@@ -20,10 +21,33 @@
     justify-content: flex-start;
 }
 .cardBottom{
-    justify-content: flex-end;
-    
+    display: flex;
+    flex-direction: column-reverse;
+}
+.cards{
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5)  ; 
+	-webkit-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5)  ; 
+	-moz-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5)  ; 
+    border-radius: 14px;
+}
+.btn{
+    margin: 5px;
+    padding: 5px;
 }
  body{
-    background-image: url(http://farm9.staticflickr.com/8351/8306408148_056c8149c4_o.jpg);
+    background-image: url(https://wallpaperaccess.com/full/4694602.jpg);
     background-size: cover;
+    font-family: 'Patrick Hand SC', cursive;
+ }
+ .dContainer{
+    width: 80%;
+    background: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
+    border-radius: 14px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5)  ; 
+	-webkit-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5)  ; 
+	-moz-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5)  ; 
+    border-radius: 14px;
+ }
+ .logo{
+    margin-left: 90px;
  }

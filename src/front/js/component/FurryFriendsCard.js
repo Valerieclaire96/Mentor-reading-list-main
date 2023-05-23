@@ -39,7 +39,7 @@ export default function FurryFriendsCard() {
     }, [store.favorites]);
 
     return (
-        <div className="d-flex col-10 overflow-auto mt-5 mx-auto" >            
+        <div className="d-flex col-10 overflow-auto mt-5 mx-auto cards" >            
             
             {furryFriends.length ? furryFriends.map((pet, index) => (
                 <div className="card col-1" style={{ width: "30rem" }}>
@@ -57,7 +57,7 @@ export default function FurryFriendsCard() {
                         <div className="cardBottom">
                         <Link
                                 to={`/furry_friends_description/` + pet.id}
-                                className="btn btn-outline-primary btn-outline-starwars-1"
+                                className="btn btn-light text-dark"
                             >
                                 Learn More!
                             </Link>
@@ -66,6 +66,11 @@ export default function FurryFriendsCard() {
                                     actions.addFavorite(pet);
                                 }}
                                 className="favorites-button"
+                                style={{
+                                    background: "transparent",
+                                    border: "none",
+                                    outline: "none",
+                                  }}
                             >
                                 ❤️️
                             </button>

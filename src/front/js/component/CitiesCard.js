@@ -42,7 +42,7 @@ export default function CitiesCard() {
 
 
     return (
-      <div className="d-flex col-10 overflow-auto mt-5 mx-auto" >            
+      <div className="d-flex col-10 overflow-auto mt-5 mx-auto cards" >            
             
             {cities.length ? cities.map((city, index) => (
                 <div className="card col-1" style={{ width: "30rem" }}>
@@ -62,7 +62,7 @@ export default function CitiesCard() {
                         <div className="cardBottom">
                         <Link
                                 to={`/cities_description/` + city.id}
-                                className="btn btn-outline-primary btn-outline-starwars-1"
+                                className="btn btn-light text-dark"
                             >
                                 Learn More!
                             </Link>
@@ -70,7 +70,12 @@ export default function CitiesCard() {
                                 onClick={() => {
                                     actions.addFavorite(city);
                                 }}
-                                className="favorites-button"
+                                className="favorites-button "
+                                style={{
+                                    background: "transparent",
+                                    border: "none",
+                                    outline: "none",
+                                  }}
                             >
                                 ❤️️
                             </button>
