@@ -2,27 +2,47 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			item: "",
-			description: {}
+			description: {},
+			favorites: []
 			},
 		actions: {
 			// Use getActions to call a function within a fuction
-
 			fetchDescription: (e) => {
 				fetch(e)
-				.then((res) => {
+				  .then((res) => {
 					return res.json();
-				})
-				.then((data) => {
+				  })
+				  .then((data) => {
 					setStore({
-						item: getStore().item,
-						description: data.result.properies,
-					})
-				});
-			},
-			setItem: (e) => {
+					  favorites: getStore().favorites,
+					  item: getStore().item,
+					  description: data.result.properties,
+					});
+				  });
+			  },
+			  setItem: (e) => {
 				setStore({
-					item: e,
-					description: getStore().description
+				  favorites: getStore().favorites,
+				  item: e,
+				  description: getStore().description,
+				});
+			  },
+			addFavorite: (e) => {
+				console.log(e);
+				setStore({
+				  favorites: [ ...getStore().favorites, e ],
+				  item: getStore().item,
+				  description: getStore().description, 
+				  
+				});
+			  },
+			  removeFavorite: (e) => {
+				setStore({
+				  favorites: getStore().favorites.filter((x) => {
+					return x != e;
+				  }),
+				  item: getStore().item,
+				  description: getStore().description,
 				});
 			},
 			exampleFunction: () => {

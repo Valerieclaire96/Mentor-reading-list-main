@@ -36,9 +36,9 @@ def get_characters():
     all_characters = list(map(lambda x: x.serialize(), characters))
     return jsonify(all_characters), 200
 
-@api.route('/characters/<int:character_id>', methods=["GET"])
-def get_character(character_id):
-    character = Character.query.get(character_id)
+@api.route('/characters/<int:id>', methods=["GET"])
+def get_character(id):
+    character = Character.query.filter_by(id=id).first()
     return jsonify(character.serialize()), 200
 
 @api.route('/bending_type', methods=["POST"])
@@ -58,9 +58,9 @@ def get_bending_types():
     all_bending_types = list(map(lambda x: x.serialize(), bending_types))
     return jsonify(all_bending_types), 200
 
-@api.route('/bending_types/<int:bending_types_id>', methods=["GET"])
-def get_bending_type(bending_types_id):
-    bending_types = Bending_Types.query.get(bending_types_id)
+@api.route('/bending_types/<int:id>', methods=["GET"])
+def get_bending_type(id):
+    bending_types = Bending_Types.query.filter_by(id=id).first()
     return jsonify(bending_types.serialize()), 200
 
 
@@ -82,9 +82,9 @@ def get_cities():
     all_cities = list(map(lambda x: x.serialize(), cities))
     return jsonify(all_cities), 200
 
-@api.route('/cities/<int:cities_id>', methods=["GET"])
-def get_city(cities_id):
-    cities = Cities.query.get(cities_id)
+@api.route('/cities/<int:id>', methods=["GET"])
+def get_city(id):
+    cities = Cities.query.filter_by(id=id).first()
     return jsonify(cities.serialize()), 200
 
 
@@ -105,9 +105,9 @@ def get_furry_friends():
     all_furry_friends = list(map(lambda x: x.serialize(), furry_friends))
     return jsonify(all_furry_friends), 200
 
-@api.route('/furry_friends/<int:furry_friends_id>', methods=["GET"])
-def get_furry_friend(furry_friends_id):
-    furry_friends = Furry_Friends.query.get(furry_friends_id)
+@api.route('/furry_friends/<int:id>', methods=["GET"])
+def get_furry_friend(id):
+    furry_friends = Furry_Friends.query.filter_by(id=id).first()
     return jsonify(furry_friends.serialize()), 200
 
 @api.route('/previous_avatar', methods=["POST"])
@@ -129,7 +129,7 @@ def get_previous_avatars():
     all_previous_avatars = list(map(lambda x: x.serialize(), previous_avatars))
     return jsonify(all_previous_avatars), 200
 
-@api.route('/previous_avatars/<int:previous_avatars_id>', methods=["GET"])
-def get_previous_avatar(previous_avatars_id):
-    previous_avatars = Previous_Avatars.query.get(previous_avatars_id)
+@api.route('/previous_avatars/<int:id>', methods=["GET"])
+def get_previous_avatar(id):
+    previous_avatars = Previous_Avatars.query.filter_by(id=id).first()
     return jsonify(previous_avatars.serialize()), 200

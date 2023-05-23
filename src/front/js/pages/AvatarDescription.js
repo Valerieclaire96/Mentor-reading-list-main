@@ -1,21 +1,22 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { Context } from "../store/appContext";
+import { useParams } from "react-router-dom";
 
+export default function AvatarDescription({}) {
+    const { store, actions } = useContext(Context);
+    const [avatar, setAvatar] = useState({})
 
-export default function AvatarDescription() {
-    const [avatars, setAvatars] = useState([])
+    const { id } = useParams();
+    
 
     useEffect(() => {
-        async function fetchData() {
-            const res = await fetch(process.env.BACKEND_URL + "/api/previous_avatars");
-            const data = await res.json();
-            setAvatars(data);
-        }
-        fetchData();
-    }, []);
+        fetch(process.env.BACKEND_URL + "api/previous_avatars/" + id)
+          .then((res) => res.json())
+          .then((data) => setAvatar(data))
+      }, []);
 
 	return (
         <div>
-        {avatars.
             <div className='description-container'>
             <img src={avatar.photo} className='description-pic'/>
             <h1>{avatar.name}</h1>
@@ -25,7 +26,6 @@ export default function AvatarDescription() {
             <h2 className='description'>Age at Death: {avatar.age_at_death}</h2>
             <h2 className='description'>Notable Traits: {avatar.notable_traits}</h2>
         </div>
-    )): null}
     </div>
 	)
 }

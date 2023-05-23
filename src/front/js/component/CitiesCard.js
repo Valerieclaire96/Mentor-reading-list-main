@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 
 export default function CitiesCard() {
@@ -16,9 +18,7 @@ export default function CitiesCard() {
         fetchData();
     }, []);
 
-    const learnMoreDescription = () => {
-        history(`/description/${cities.id}`);
-    };
+
 
     return (
       <div className="d-flex col-10 overflow-auto mt-5 mx-auto" >            
@@ -39,9 +39,12 @@ export default function CitiesCard() {
                         </h5>
                         </div>
                         <div className="cardBottom">
-                            <button onClick={learnMoreDescription} className="btn btn-secondary">
-                                Learn More
-                            </button>
+                        <Link
+                                to={`/cities_description/` + city.id}
+                                className="btn btn-outline-primary btn-outline-starwars-1"
+                            >
+                                Learn More!
+                            </Link>
                             {/* <button
               onClick={(e) => handleClick(e)}
               className={activeFav ? "fas fa-heart" : "far fa-heart"}

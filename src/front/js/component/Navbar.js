@@ -1,35 +1,65 @@
-import React from 'react'
+import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 export default function Navbar() {
-  return (
-    <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-  <a className="navbar-brand" href="#">Navbar</a>
-  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span className="navbar-toggler-icon"></span>
-  </button>
-  <div className="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul className="navbar-nav">
-      <li className="nav-item active">
-        <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="#">Features</a>
-      </li>
-      <li className="nav-item dropdown">
-        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
-        </a>
-        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a className="dropdown-item" href="#">Action</a>
-          <a className="dropdown-item" href="#">Another action</a>
-          <a className="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-    </ul>
-  </div>
-</nav>
+  const [favoriteItems, setFavoriteItems] = useState([]);
+  const { store, actions } = useContext(Context);
 
-    </div>
-  )
-}
+  useEffect(() => {
+    console.log("favorites", store.favorites);
+    setFavoriteItems(store.favorites);
+  }, [store.favorites]);
+
+  return (
+    <nav className="navbar">
+      <Link to="/">
+        <span
+          style={{ marginLeft: "4rem", color: "gold" }}
+          className="navbar-brand mb-0 h1"
+        >
+          {/* <img  className="logo" src={Logo}></img> */}
+        </span>
+      </Link>
+      <div style={{ marginRight: "4rem" }} className="dropdown">
+        <button
+          className="btn btn-secondary dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Favorites
+        </button>
+        <ul className="dropdown-menu">
+          {favoriteItems.length ? (
+            favoriteItems.map((item) => {
+              return (
+                <li
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                  className="dropdown-item"
+                >
+                  {item.name}
+                  <button
+                    onClick={() => {
+                      actions.removeFavorite(item);
+                    }}
+                  >
+                    X
+                  </button>{" "}
+                </li>
+              );
+            })
+          ) : (
+            <li>
+              No favorites.
+            </li>
+          )}
+        </ul>
+      </div>
+    </nav>
+  );
+};
