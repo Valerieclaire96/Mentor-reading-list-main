@@ -24,21 +24,14 @@ export default function CharacterCard() {
     }, []);
 
 
-    useEffect(() => {
-        if (
-            store.favorites.find((x) => {
-                for (let i in x) {
-                    if (characters[i] && characters[i].name === x[i].name) {
-                        return true;
-                    }
-                }
-            })
-        ) {
-            setLiked(true);
-        } else {
-            setLiked(false);
+    const handleFavorites = (item) => {
+        if(store.favorites.includes(item)){
+            actions.removeFavorites(item)
         }
-    }, [store.favorites]);
+        else {
+            actions.addFavorites(item)
+        }
+    }
     return (
       <div className="d-flex col-10 overflow-auto mt-5 mx-auto cards" >            
             {characters.length ? characters.map((character, index) => (
@@ -63,7 +56,7 @@ export default function CharacterCard() {
                             </Link>
                             <button
                                 onClick={() => {
-                                    actions.addFavorite(character);
+                                    handleFavorites(character);
                                 }}
                                 className="favorites-button"
                                 style={{
