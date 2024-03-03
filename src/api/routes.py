@@ -52,6 +52,12 @@ def add_bending_types():
 
     return jsonify(request_body), 200
 
+@api.route('/characters/<int:id>', methods=["DELETE"])
+def get_character(id):
+    character = Character.query.filter_by(id=id).first()
+    db.session.delete(character)
+    return jsonify(character.serialize(), "has been deleted), 200
+
 @api.route('/bending_types', methods=["GET"])
 def get_bending_types():
     bending_types = Bending_Types.query.all()
