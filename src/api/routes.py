@@ -41,6 +41,12 @@ def get_character(id):
     character = Character.query.filter_by(id=id).first()
     return jsonify(character.serialize()), 200
 
+@api.route('/characters/<int:id>', methods=["DELETE"])
+def get_character(id):
+    character = Character.query.filter_by(id=id).first()
+    db.session.delete(character)
+    return jsonify(character.serialize(), "has been deleted), 200
+                   
 @api.route('/bending_type', methods=["POST"])
 def add_bending_types():
     request_body = request.get_json(force=True)
@@ -51,12 +57,6 @@ def add_bending_types():
     photo = request_body.get("photo")
 
     return jsonify(request_body), 200
-
-@api.route('/characters/<int:id>', methods=["DELETE"])
-def get_character(id):
-    character = Character.query.filter_by(id=id).first()
-    db.session.delete(character)
-    return jsonify(character.serialize(), "has been deleted), 200
 
 @api.route('/bending_types', methods=["GET"])
 def get_bending_types():
