@@ -31,18 +31,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(e);
 				setStore({
 				  favorites: [ ...getStore().favorites, e ],
-				  item: getStore().item,
-				  description: getStore().description, 
-				  
 				});
 			  },
 			  removeFavorite: (e) => {
 				setStore({
 				  favorites: getStore().favorites.filter((x) => {
 					return x != e;
-				  }),
-				  item: getStore().item,
-				  description: getStore().description,
+				  })
 				});
 			},
 			exampleFunction: () => {
