@@ -17,8 +17,6 @@ export default function CharacterCard() {
             const res = await fetch(process.env.BACKEND_URL + "/api/characters");
             const data = await res.json();
             setCharacters(data);
-            actions.setItem(data)
-
         }
         fetchData();
     }, []);
