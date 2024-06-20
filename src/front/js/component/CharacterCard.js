@@ -32,7 +32,7 @@ export default function CharacterCard() {
     }
     return (
       <div className="d-flex col-10 overflow-auto mt-5 mx-auto cards" >            
-            {characters.length ? characters.map((character, index) => (
+            {characters?.map((character, index) => (
                 <div className="card col-1" style={{ width: "30rem" }}>
                     {console.log(characters.name, "HERE")}
                     <img src={character.photo} style={{height: "15rem"}} className="card-img-top" />
